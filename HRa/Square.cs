@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,68 +14,72 @@ namespace HRa
         Random rnd = new Random();
         Panel gamePanel;
         int countdown;
-        public Square(Game game, Panel p)
+        Game game;
+        Player player;
+        public Square(Game game, Player player)
         {
             countdown = 5000;
-            this.gamePanel = p;
-            CreateSquare(game, p);
+            this.gamePanel = new Panel();
+            this.game = game;
+            this.player = player;
+            CreateSquare(game);
         }
-        void CreateSquare(Game game, Panel gamePanel)
+        void CreateSquare(Game game)
         {
-            Panel panel = new Panel();
-            panel.Size = GenerateSize();
-            panel.Location = GeneratePoint(panel.Width,panel.Height,game);
-            panel.Click += Panel_Click;
-            panel.BackColor = Color.Red;
-            gamePanel.Controls.Add(panel);
+            gamePanel.Size = GenerateSize();
+            gamePanel.Location = GeneratePoint(gamePanel.Width,gamePanel.Height, game);
+            gamePanel.Click += gamePanel_Click;
+            gamePanel.BackColor = Color.Red;
+            game.panel1.Controls.Add(gamePanel);
         }
 
         public void Update(Game g)
         {
             descendCountdown(g);
-            changeColorOfPanels(g);
+            changeColorOfgamePanels();
         }
 
         void descendCountdown(Game g)
         {
             countdown -= g.timer1.Interval;
-        }
 
-        void changeColorOfPanels(Game g)
-        {
-            foreach (Square item in g.squareList)
+            if (this.countdown <= 0)
             {
-
-                item.gamePanel.Controls.panelBackColor = changeColorOfPanels(this);
+                gamePanel.Dispose();
 
             }
+        }
+
+        void changeColorOfgamePanels()
+        {
+            gamePanel.BackColor = changeColour();
         }
 
         Color changeColour()
         {
-            if (countdown > 3000)
+            if (countdown >= 3000)
             {
                 return Color.Green;
             }
-            else if (countdown > 2000 && countdown < 3000)
+            else if (countdown >= 2000 && countdown < 3000)
             {
                 return Color.Yellow;
-            } else
+            } 
+            else
             {
                 return Color.Red;
             }
         }
 
-        private void Panel_Click(object sender, EventArgs e)
+        private void gamePanel_Click(object sender, EventArgs e)
         {
-
-            gamePanel.Controls.Remove(sender as Panel);
+            game.panel1.Controls.Remove(sender as Panel);
         }
 
         Point GeneratePoint(int width, int height, Game game)
         {
-            int x = rnd.Next(0, gamePanel.Width - width);
-            int y = rnd.Next(0, gamePanel.Height - height);
+            int x = rnd.Next(0, game.panel1.Width - width);
+            int y = rnd.Next(0, game.panel1.Height - height);
             return new Point(x, y);
         }
 

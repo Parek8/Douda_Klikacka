@@ -14,7 +14,7 @@ namespace HRa
     {
         Form GameForm;
         internal List<Square> squareList = new List<Square>();
-        
+        Player player;
         public Game(string name, Form f)
         {
 
@@ -22,17 +22,16 @@ namespace HRa
             InitializeComponent();
 
             timer1.Enabled = true;
+            player = new Player(name);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            squareList.Add(new Square(this, this.panel1));
+            squareList.Add(new Square(this, player));
             foreach (Square item in squareList)
             {
                 item.Update(this);
             }
         }
-
-        
     }
 }

@@ -22,3 +22,15 @@ C:\Users\mcg03\Desktop\HRa\HRa\obj\Debug\HRa.csproj.GenerateResource.cache
 C:\Users\mcg03\Desktop\HRa\HRa\obj\Debug\HRa.csproj.CoreCompileInputs.cache
 C:\Users\mcg03\Desktop\HRa\HRa\obj\Debug\HRa.exe
 C:\Users\mcg03\Desktop\HRa\HRa\obj\Debug\HRa.pdb
+C:\Users\polak\School\hradoudik\HRa\bin\Debug\HRa.exe.config
+C:\Users\polak\School\hradoudik\HRa\bin\Debug\HRa.exe
+C:\Users\polak\School\hradoudik\HRa\bin\Debug\HRa.pdb
+C:\Users\polak\School\hradoudik\HRa\obj\Debug\HRa.csproj.AssemblyReference.cache
+C:\Users\polak\School\hradoudik\HRa\obj\Debug\HRa.csproj.SuggestedBindingRedirects.cache
+C:\Users\polak\School\hradoudik\HRa\obj\Debug\HRa.Form1.resources
+C:\Users\polak\School\hradoudik\HRa\obj\Debug\HRa.Game.resources
+C:\Users\polak\School\hradoudik\HRa\obj\Debug\HRa.Properties.Resources.resources
+C:\Users\polak\School\hradoudik\HRa\obj\Debug\HRa.csproj.GenerateResource.cache
+C:\Users\polak\School\hradoudik\HRa\obj\Debug\HRa.csproj.CoreCompileInputs.cache
+C:\Users\polak\School\hradoudik\HRa\obj\Debug\HRa.exe
+C:\Users\polak\School\hradoudik\HRa\obj\Debug\HRa.pdb
