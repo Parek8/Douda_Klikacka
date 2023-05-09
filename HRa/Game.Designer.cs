@@ -33,6 +33,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.livesLabel = new System.Windows.Forms.Label();
+            this.score_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timer1
@@ -42,10 +43,10 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.YellowGreen;
-            this.panel1.Location = new System.Drawing.Point(19, 70);
+            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.Location = new System.Drawing.Point(12, 70);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1036, 415);
+            this.panel1.Size = new System.Drawing.Size(1043, 472);
             this.panel1.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -65,11 +66,21 @@
             this.livesLabel.TabIndex = 0;
             this.livesLabel.Text = "Lives: ";
             // 
+            // score_label
+            // 
+            this.score_label.AutoSize = true;
+            this.score_label.Location = new System.Drawing.Point(859, 22);
+            this.score_label.Name = "score_label";
+            this.score_label.Size = new System.Drawing.Size(101, 16);
+            this.score_label.TabIndex = 3;
+            this.score_label.Text = "Current Score: 0";
+            // 
             // Game
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.score_label);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.livesLabel);
@@ -86,5 +97,6 @@
         internal System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label livesLabel;
+        public System.Windows.Forms.Label score_label;
     }
 }

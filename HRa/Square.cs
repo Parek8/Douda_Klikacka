@@ -9,13 +9,14 @@ using System.Windows.Forms;
 
 namespace HRa
 {
-    internal class Square
+    public class Square
     {
         Random rnd = new Random();
-        Panel gamePanel;
+        public Panel gamePanel { get; private set; }
         int countdown;
         Game game;
         Player player;
+        public bool isAlive { get { return this.countdown > 0; } private set { isAlive = value; } }
         public Square(Game game, Player player)
         {
             countdown = 5000;
@@ -29,7 +30,6 @@ namespace HRa
             gamePanel.Size = GenerateSize();
             gamePanel.Location = GeneratePoint(gamePanel.Width,gamePanel.Height, game);
             gamePanel.Click += gamePanel_Click;
-            gamePanel.BackColor = Color.Red;
             game.panel1.Controls.Add(gamePanel);
         }
 
@@ -37,6 +37,11 @@ namespace HRa
         {
             descendCountdown(g);
             changeColorOfgamePanels();
+            ChangeScoreText();
+        }
+        public void ChangeScoreText()
+        {
+            game.score_label.Text = $"Current Score: {player.score}";
         }
 
         void descendCountdown(Game g)
@@ -45,8 +50,8 @@ namespace HRa
 
             if (this.countdown <= 0)
             {
+                player.TakeDamage();
                 gamePanel.Dispose();
-
             }
         }
 
@@ -74,6 +79,8 @@ namespace HRa
         private void gamePanel_Click(object sender, EventArgs e)
         {
             game.panel1.Controls.Remove(sender as Panel);
+            game.RemoveFromList(this);
+            player.AddScore();
         }
 
         Point GeneratePoint(int width, int height, Game game)
